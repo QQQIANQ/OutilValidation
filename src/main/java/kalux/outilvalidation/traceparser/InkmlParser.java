@@ -35,10 +35,7 @@ public class InkmlParser {
 						trace.setGroundTruthLetterDetails(eElement.getTextContent());
 
 					}
-					/*
-					 * if(eElement.getAttribute("type").equals("expectedValue")){
-					 * trace.setExpectedValue(eElement.getTextContent()); }
-					 */
+				
 				}
 			}
 

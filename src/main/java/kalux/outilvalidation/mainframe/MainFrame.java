@@ -14,18 +14,21 @@ import com.formdev.flatlaf.IntelliJTheme;
 public class MainFrame {
 	public static void main(String[] args) throws Exception {
 		
-		//FlatDarkLaf.setup();
-		IntelliJTheme.setup( MainFrame.class.getResourceAsStream("/arc_theme_dark_orange.theme.json") );
-		
+		IntelliJTheme.setup( MainFrame.class.getResourceAsStream("/arc-theme.theme.json") );
+
 		JFrame jf = new JFrame("Outil de validation");
 		jf.setSize(400,400);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER,30,40));
+        panel.setLayout(new GridLayout(2,2,10,10));
 
-		JButton btnCompteur = new JButton("Compteur données non tolérées");
+		//panel.setLayout(new FlowLayout(FlowLayout.CENTER,30,40));
+
+		JButton btnCompteur = new JButton("<html>"+ "Compteur données <br> non tolérées </html>");
+		btnCompteur.setHorizontalTextPosition(JButton.CENTER);
+		btnCompteur.setVerticalTextPosition(JButton.CENTER);
 		btnCompteur.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -38,7 +41,6 @@ public class MainFrame {
 				}
 			}
 		});
-
 		panel.add(btnCompteur);
 
 		JButton btnTolererFiltre = new JButton("Filtre données tolérées");
