@@ -127,12 +127,14 @@ public class TxtReader {
 							line = br.readLine();
 						}
 						br.close();
-						for (int i = 0; i < filesName.size(); i++) {
+						
+						
+					for (int i = 0; i < filesName.size(); i++) {
 							for (int j = 0; j < files.size(); j++) {
 								if (files.get(j).getName().equals(filesName.get(i))) {
-									File newFile = new File(save.getPath(), files.get(i).getName());
+									File newFile = new File(save.getPath(), files.get(j).getName());
 									try {
-										files.get(i).renameTo(newFile);
+										files.get(j).renameTo(newFile);
 										compt++;
 									} catch (Exception e) {
 										System.out.println(e);

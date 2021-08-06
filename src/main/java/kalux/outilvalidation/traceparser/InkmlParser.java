@@ -27,6 +27,9 @@ public class InkmlParser {
 				Node nNode = nList.item(temp);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
+					if (eElement.getAttribute("type").equals("expectedValue")) {
+						trace.setExpectedValue(eElement.getTextContent());
+					}
 					if (eElement.getAttribute("type").equals("expectedLetterDetails")) {
 						trace.setExpectedLetterDetails(eElement.getTextContent());
 					}
