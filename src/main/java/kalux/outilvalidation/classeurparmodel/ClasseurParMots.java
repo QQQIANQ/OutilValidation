@@ -23,7 +23,7 @@ public class ClasseurParMots {
 	public void execute() throws Exception {
 
 		JFrame jf = new JFrame("Classeur les données traité par model");
-		jf.setSize(400, 400);
+		jf.setSize(400, 450);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -110,7 +110,7 @@ public class ClasseurParMots {
 				int compt = 0;
 				for (int i = 0; i < files.size(); i++) {
 					Trace trace = new Trace();
-					traces.add(parserDemo.xmlParser(files.get(i), trace));
+					traces.add(parserDemo.inkmlParser(files.get(i), trace));
 
 					for (int j = i; j < traces.size(); j++) {
 						if (traces.get(j).getExpectedValue()!=null) {

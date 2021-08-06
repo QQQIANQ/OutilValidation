@@ -53,9 +53,24 @@ public class ClasseurFrame {
 				}
 			}
 		});
-
-
 		panel.add(btnClasseurMots);
+
+
+		JButton btnClasseurLots = new JButton("Classer les données par lots");
+		btnClasseurLots.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ClasseurParLots classeuLots= new ClasseurParLots();
+				try {
+					classeuLots.execute();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		panel.add(btnClasseurLots);
+
 
 		jf.setContentPane(panel);
 		jf.setVisible(true);

@@ -16,7 +16,7 @@ public class CompteurFrame {
 
 	public void execute() throws Exception {
 		JFrame jf = new JFrame("CompteurProportionNonTolere");
-		jf.setSize(400, 400);
+		jf.setSize(400, 450);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,7 +82,8 @@ public class CompteurFrame {
 			ArrayList<Trace> traces = new ArrayList<>();
 			for (int i = 0; i < files.size(); i++) {
 				Trace trace = new Trace();
-				traces.add(parserDemo.xmlParser(files.get(i), trace));
+				traces.add(parserDemo.inkmlParser(files.get(i), trace));
+			//	System.out.println(files.get(i).getName());
 			}
 
 			double ratio = 1.00 - (double) parserDemo.compterNonTolerer(traces) / files.size();

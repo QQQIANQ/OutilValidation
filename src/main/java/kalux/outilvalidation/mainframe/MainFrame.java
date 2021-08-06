@@ -2,8 +2,8 @@ package kalux.outilvalidation.mainframe;
 
 import javax.swing.*;
 
+
 import kalux.outilvalidation.classeurparmodel.ClasseurFrame;
-import kalux.outilvalidation.classeurparmodel.ClasseurParModel;
 import kalux.outilvalidation.nontolerercompteur.*;
 import kalux.outilvalidation.passablefiltre.*;
 import kalux.outilvalidation.tolererfiltre.*;

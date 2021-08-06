@@ -22,7 +22,7 @@ public class TxtReader {
 	public void execute() throws Exception {
 
 		JFrame jf = new JFrame("Filtrer données Passable");
-		jf.setSize(400, 400);
+		jf.setSize(400, 450);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
