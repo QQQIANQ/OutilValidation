@@ -3,10 +3,11 @@ package kalux.outilvalidation.mainframe;
 import javax.swing.*;
 
 
+
 import kalux.outilvalidation.classeurparmodel.ClasseurFrame;
-import kalux.outilvalidation.nontolerercompteur.*;
-import kalux.outilvalidation.passablefiltre.*;
-import kalux.outilvalidation.tolererfiltre.*;
+import kalux.outilvalidation.filtrage.FiltrageFrame;
+import kalux.outilvalidation.nontolerercompteur.CompteurFrame;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,7 +27,7 @@ public class MainFrame {
 		JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3,2,10,10));
 
-		JButton btnCompteur = new JButton("<html>"+ "Compter données <br> non tolérées </html>");
+		JButton btnCompteur = new JButton("Compter données non tolérées");
 		btnCompteur.setHorizontalTextPosition(JButton.CENTER);
 		btnCompteur.setVerticalTextPosition(JButton.CENTER);
 		btnCompteur.addActionListener(new ActionListener() {
@@ -42,29 +43,14 @@ public class MainFrame {
 			}
 		});
 		panel.add(btnCompteur);
-
-		JButton btnTolererFiltre = new JButton("Filtre données tolérées");
-		btnTolererFiltre.addActionListener(new ActionListener() {
+		
+		JButton btnFiltre = new JButton("Données filtrage");
+		btnFiltre.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TolererFiltre tolererFiltre = new TolererFiltre();
+				FiltrageFrame filtrageFrame= new FiltrageFrame();
 				try {
-					tolererFiltre.execute();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		panel.add(btnTolererFiltre);
-
-		JButton btnNonTolererFiltre = new JButton("Filtre données non tolérées");
-		btnNonTolererFiltre.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				NonTolererFiltre nontolererFiltre = new NonTolererFiltre();
-				try {
-					nontolererFiltre.execute();
+					filtrageFrame.execute();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -72,25 +58,9 @@ public class MainFrame {
 			}
 		});
 
-		panel.add(btnNonTolererFiltre);
-
-		JButton btnPassableFiltre = new JButton("Filtre données passable");
-		btnPassableFiltre.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TxtReader txtReader = new TxtReader();
-				try {
-					txtReader.execute();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		panel.add(btnPassableFiltre);
-
-		JButton btnClasseur = new JButton("Classer les données");
+		panel.add(btnFiltre);
+		
+		JButton btnClasseur = new JButton("Données classeur");
 		btnClasseur.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

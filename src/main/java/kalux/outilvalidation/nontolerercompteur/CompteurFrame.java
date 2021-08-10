@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CompteurFrame {
 
 	public void execute() throws Exception {
-		JFrame jf = new JFrame("CompteurProportionNonTolere");
+		JFrame jf = new JFrame("Compteur Non Toléré");
 		jf.setSize(400, 450);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -50,6 +50,8 @@ public class CompteurFrame {
 	 * ouvrir fichier
 	 */
 	private static void showFileOpenDialog(Component parent, JTextArea msgTextArea) {
+		JOptionPane.showMessageDialog(parent, "Choisir les fichiers à traiter, ctrl + a pour tout selectionné",
+				"Message important", JOptionPane.INFORMATION_MESSAGE);
 
 		JFileChooser fileChooser = new JFileChooser();
 
@@ -90,8 +92,8 @@ public class CompteurFrame {
 			NumberFormat format = NumberFormat.getPercentInstance();
 			format.setMaximumFractionDigits(2);
 
-			msgTextArea.append("Donnees validees non Tolere: " + parserDemo.compterNonTolerer(traces) + ".\n"
-					+ "Parmi total de :" + files.size() + " donnees validees" + ".\n" + "La proportion tolere est : "
+			msgTextArea.append("Donnees validées non Tolérées : " + parserDemo.compterNonTolerer(traces) + ".\n"
+					+ "Parmi total de :" + files.size() + " données validées" + ".\n" + "La proportion toléré est : "
 					+ format.format(ratio) + ".\n\n");
 
 		}

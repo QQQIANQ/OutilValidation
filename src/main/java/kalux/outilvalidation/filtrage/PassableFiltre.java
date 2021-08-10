@@ -1,15 +1,9 @@
-package kalux.outilvalidation.passablefiltre;
+package kalux.outilvalidation.filtrage;
 
 import java.io.File;
 
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +12,7 @@ import java.io.FileInputStream;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class TxtReader {
+public class PassableFiltre {
 	public void execute() throws Exception {
 
 		JFrame jf = new JFrame("Filtrer données Passable");
@@ -55,7 +49,7 @@ public class TxtReader {
 
 	private static void showTxtReaderDialog(Component parent, JTextArea msgTextArea) {
 
-		JOptionPane.showMessageDialog(parent, "Choisir le fichier qui contiens la liste des données passable",
+		JOptionPane.showMessageDialog(parent, "Choisir le fichier passable.txt",
 				"Message important", JOptionPane.INFORMATION_MESSAGE);
 
 		JFileChooser txtChooser = new JFileChooser();
@@ -74,7 +68,7 @@ public class TxtReader {
 
 		if (resultTxt == JFileChooser.APPROVE_OPTION) {
 
-			JOptionPane.showMessageDialog(parent, "Choisir les données à traiter", "Message important",
+			JOptionPane.showMessageDialog(parent, "Choisir les données à filtrer", "Message important",
 					JOptionPane.INFORMATION_MESSAGE);
 
 			JFileChooser fileChooser = new JFileChooser();
@@ -100,6 +94,8 @@ public class TxtReader {
 						files.add(tempList[i]);
 					}
 				}
+				JOptionPane.showMessageDialog(parent, "Maintenant, chosir un endroit à sauvegarder les données passable",
+						"Message important", JOptionPane.INFORMATION_MESSAGE);
 				JFileChooser fileChooserSave = new JFileChooser();
 
 				fileChooserSave.setCurrentDirectory(new File("."));
@@ -149,7 +145,7 @@ public class TxtReader {
 						e.printStackTrace();
 					}
 
-					msgTextArea.append("Déplacement terminé, " + compt + " fichier ont été déplacé \n");
+					msgTextArea.append("Filtrage terminé, " + compt + " fichier ont été trouvé et déplacé \n");
 
 				}
 			}

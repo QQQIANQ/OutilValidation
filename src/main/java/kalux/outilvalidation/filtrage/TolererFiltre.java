@@ -1,4 +1,4 @@
-package kalux.outilvalidation.tolererfiltre;
+package kalux.outilvalidation.filtrage;
 
 import kalux.outilvalidation.traceparser.*;
 
@@ -12,11 +12,11 @@ import java.io.File;
 
 import java.util.ArrayList;
 
-public class NonTolererFiltre {
+public class TolererFiltre {
 
 	public void execute() throws Exception {
 
-		JFrame jf = new JFrame("Filtrer données non Tolérées");
+		JFrame jf = new JFrame("Filtrer données Tolérées");
 		jf.setSize(400, 450);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,14 +70,9 @@ public class NonTolererFiltre {
 		int result = fileChooser.showOpenDialog(parent);
 
 		if (result == JFileChooser.APPROVE_OPTION) {
-			// un seul fichier
-			// File file = fileChooser.getSelectedFile();
 
-			// selectionné tout les fichiers
-
-			JOptionPane.showMessageDialog(parent,
-					"Maintenant, Choisir un endroit à sauvegarder les fichies non tolérées", "Message important",
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(parent, "Maintenant, Choisir un endroit à sauvegarder les fichies tolérées",
+					"Message important", JOptionPane.INFORMATION_MESSAGE);
 
 			JFileChooser fileChooserSave = new JFileChooser();
 
@@ -95,7 +90,6 @@ public class NonTolererFiltre {
 			fileChooserSave.setFileFilter(new FileNameExtensionFilter("inkml(*.inkml)", "inkml"));
 
 			int resultSave = fileChooserSave.showOpenDialog(parent);
-
 			if (resultSave == JFileChooser.APPROVE_OPTION) {
 				ArrayList<File> files = new ArrayList<>();
 				File[] tempList = fileChooser.getSelectedFiles();
@@ -115,8 +109,8 @@ public class NonTolererFiltre {
 					traces.add(parserDemo.inkmlParser(files.get(i), trace));
 
 					for (int j = i; j < traces.size(); j++) {
-						if (!(traces.get(j).getExpectedLetterDetails()
-								.equals(traces.get(j).getGroundTruthLetterDetails()))) {
+						if (traces.get(j).getExpectedLetterDetails()
+								.equals(traces.get(j).getGroundTruthLetterDetails())) {
 							File newFile = new File(save.getPath(), files.get(i).getName());
 
 							try {
@@ -133,7 +127,7 @@ public class NonTolererFiltre {
 
 				}
 
-				msgTextArea.append("Déplacement terminé " + compt + " fichier ont été déplacé \n");
+				msgTextArea.append("Déplacement terminé " + compt + " fichier ont déplacé \n");
 
 			}
 		}
