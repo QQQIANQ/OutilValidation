@@ -2,6 +2,8 @@ package kalux.outilvalidation.filtrage;
 
 import java.io.File;
 
+
+
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.awt.*;
@@ -41,6 +43,7 @@ public class PassableFiltre {
 			}
 		});
 		panel.add(openBtn);
+
 
 		jf.setContentPane(panel);
 		jf.setVisible(true);
@@ -114,7 +117,7 @@ public class PassableFiltre {
 					int compt = 0;
 
 					try {
-						InputStreamReader reader = new InputStreamReader(new FileInputStream(fileTxt));
+						InputStreamReader reader = new InputStreamReader(new FileInputStream(fileTxt),"UTF-8");
 						BufferedReader br = new BufferedReader(reader);
 						ArrayList<String> filesName = new ArrayList<>();
 						String line = br.readLine();
@@ -124,10 +127,12 @@ public class PassableFiltre {
 						}
 						br.close();
 						
-						
 					for (int i = 0; i < filesName.size(); i++) {
 							for (int j = 0; j < files.size(); j++) {
+							
+							
 								if (files.get(j).getName().equals(filesName.get(i))) {
+									
 									File newFile = new File(save.getPath(), files.get(j).getName());
 									try {
 										files.get(j).renameTo(newFile);
@@ -146,6 +151,7 @@ public class PassableFiltre {
 					}
 
 					msgTextArea.append("Filtrage terminé, " + compt + " fichier ont été trouvé et déplacé \n");
+				
 
 				}
 			}

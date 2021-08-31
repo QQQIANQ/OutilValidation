@@ -4,6 +4,7 @@ import javax.swing.*;
 
 
 
+
 import kalux.outilvalidation.classeurparmodel.ClasseurFrame;
 import kalux.outilvalidation.filtrage.FiltrageFrame;
 import kalux.outilvalidation.nontolerercompteur.CompteurFrame;
@@ -16,10 +17,11 @@ import java.awt.event.ActionListener;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
 public class MainFrame {
+	
 	public static void main(String[] args) throws Exception {
 		FlatIntelliJLaf.setup();
 
-		JFrame jf = new JFrame("Outil de validation");
+		JFrame jf = new JFrame("O A C");
 		jf.setSize(400,400);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
