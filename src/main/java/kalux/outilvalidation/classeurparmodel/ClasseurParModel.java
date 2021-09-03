@@ -134,8 +134,15 @@ public class ClasseurParModel {
 					}
 
 				}
-
-				msgTextArea.append("Classment terminé " + compt + " fichier ont classé \n");
+				
+				File list[] = save.listFiles();
+				for(int i = 0; i< list.length;i++) {
+					if(list[i].isDirectory()) {
+						msgTextArea.append(list[i].getName()+ " : "+list[i].listFiles().length + "\n");
+					}
+				}
+				
+				msgTextArea.append("Classment terminé, " + compt + " fichier ont été classé \n");
 
 			}
 		}

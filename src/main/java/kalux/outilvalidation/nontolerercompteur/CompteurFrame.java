@@ -88,12 +88,12 @@ public class CompteurFrame {
 			//	System.out.println(files.get(i).getName());
 			}
 
-			double ratio = 1.00 - (double) parserDemo.compterNonTolerer(traces) / files.size();
+			double ratio = (double) parserDemo.compterNonTolerer(traces) / files.size();
 			NumberFormat format = NumberFormat.getPercentInstance();
 			format.setMaximumFractionDigits(2);
 
 			msgTextArea.append("Donnees validées non Tolérées : " + parserDemo.compterNonTolerer(traces) + ".\n"
-					+ "Parmi total de :" + files.size() + " données validées" + ".\n" + "La proportion toléré est : "
+					+ "Parmi total de : " + files.size() + " données validées" + ".\n" + "Proportions données non tolérées est : "
 					+ format.format(ratio) + ".\n\n");
 
 		}
